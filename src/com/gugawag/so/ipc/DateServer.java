@@ -18,29 +18,29 @@ public class DateServer{
 		try {
 			ServerSocket sock = new ServerSocket(6013);
 
-			System.out.println("=== Servidor iniciado ===\n");
+			System.out.println("=== SERVIDOR INICIADO ===\nRoosevelt Henrique de Lima Ferreira\n");
 			// escutando por conexões
 			while (true) {
 				Socket client = sock.accept();
 				// Se chegou aqui, foi porque algum cliente se comunicou
-				System.out.println("Servidor recebeu comunicação do ip: " + client.getInetAddress() + "-" + client.getPort());
+				System.out.println("Servidor recebeu comunicação do ip: " + client.getInetAddress() + ":" + client.getPort());
 				PrintWriter pout = new PrintWriter(client.getOutputStream(), true);
 
 				// Escreve a data atual no socket
-				pout.println(new Date().toString() + "-Boa noite alunos!");
+				pout.println(new Date().toString() + " - Boa noite alunos!");
 
 				InputStream in = client.getInputStream();
 				BufferedReader bin = new BufferedReader(new InputStreamReader(in));
 
 				String line = bin.readLine();
-				System.out.println("O cliente me disse:" + line);
+				System.out.println("O cliente me disse: " + line);
 
 				// fechar o socket e volta no loop para escutar novas conexões
 				client.close();
 			}
 		}
 		catch (IOException ioe) {
-				System.err.println(ioe);
+			System.err.println(ioe);
 		}
 	}
 }

@@ -20,7 +20,7 @@ public class DateClient {
 			InputStream in = sock.getInputStream();
 			BufferedReader bin = new BufferedReader(new InputStreamReader(in));
 
-			System.out.println("=== Cliente iniciado ===\n");
+			System.out.println("=== CLIENTE INICIADO ===\n");
 
 			String line = bin.readLine();
 			System.out.println("O servidor me disse:" + line);
@@ -28,7 +28,7 @@ public class DateClient {
 			sock.close();
 		}
 		catch (IOException ioe) {
-				System.err.println(ioe);
+			System.err.println(ioe);
 		}
 	}
 }
